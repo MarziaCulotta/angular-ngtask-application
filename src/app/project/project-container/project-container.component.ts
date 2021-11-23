@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
+
 import { Project } from '@app/models/Project';
-import { LogService } from '@app/shared/log.service';
 import { ProjectService } from '../project.service';
 
 @Component({
@@ -10,14 +10,16 @@ import { ProjectService } from '../project.service';
   styleUrls: ['./project-container.component.css']
 })
 export class ProjectContainerComponent implements OnInit {
+  subscription!: Subscription;
   selectedProject!: Project;
 
-  projects: Project[] = [];
+  // projects: Project[] = [];
+  projects$!: Observable<Project[]>;
 
   constructor(private projectService: ProjectService) {}
 
   ngOnInit(): void {
-    this.projects = this.projectService.getAll();
+    this.projects$ = this.projectService.getAll();
   }
 
   selectProject(project: Project) {
@@ -31,7 +33,6 @@ export class ProjectContainerComponent implements OnInit {
 
   testMethod(str: string) {
     console.log('Stringa ricevuta dal parent', str);
-
   }
 
 }
