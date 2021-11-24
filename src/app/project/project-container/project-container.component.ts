@@ -9,7 +9,7 @@ import { ProjectService } from '../project.service';
   templateUrl: './project-container.component.html',
   styleUrls: ['./project-container.component.css']
 })
-export class ProjectContainerComponent implements OnInit {
+export class ProjectContainerComponent implements OnInit, OnDestroy {
   subscription!: Subscription;
   selectedProject!: Project;
 
@@ -23,12 +23,17 @@ export class ProjectContainerComponent implements OnInit {
   }
 
   selectProject(project: Project) {
-    this.selectedProject = this.projectService.get(project.id);
+    this.subscription = this.projectService.get(project.id).subscribe(data => {
+      this.selectedProject = data;
+    })
   }
 
   submitProjectForm(project: Project) {
-    this.projectService.add(project);
+    this.projectService.add(project).subscribe(data => this.projects$ = this.projectService.getAll());
+  }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   testMethod(str: string) {
