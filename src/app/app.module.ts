@@ -11,7 +11,8 @@ import { ProjectFormComponent } from './modules/project/components/project-form/
 import { HomeComponent } from './modules/dashboard/pages/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './layout/navbar/navbar.component';
-import { SectionHeaderComponent } from './shared/section-header/section-header.component';
+import { SharedModule } from './shared/shared.module';
+
 
 @NgModule({
   declarations: [
@@ -22,12 +23,13 @@ import { SectionHeaderComponent } from './shared/section-header/section-header.c
     ProjectFormComponent,
     HomeComponent,
     NavbarComponent,
-    SectionHeaderComponent
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    SharedModule,
     AppRoutingModule
   ],
   providers: [],

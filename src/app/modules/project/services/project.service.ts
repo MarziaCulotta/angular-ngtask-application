@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { catchError, retry, tap } from 'rxjs/operators';
 
 import { Project } from '@app/models/Project';
-import { LogService } from '@app/shared/log.service';
+import { LogService } from '@app/services/log.service';
 
 
 @Injectable({
