@@ -7,18 +7,19 @@ import { HomeComponent } from './modules/dashboard/pages/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { ProjectModule } from './modules/project/project.module';
+import { DashboardModule } from './modules/dashboard/pages/dashboard.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     NavbarComponent,
 
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    DashboardModule,
     AppRoutingModule
   ],
   providers: [],
