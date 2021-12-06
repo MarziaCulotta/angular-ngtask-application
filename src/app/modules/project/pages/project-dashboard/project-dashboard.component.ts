@@ -18,6 +18,8 @@ export class ProjectDashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.projects$ = this.projectService.getAll();
+
+
   }
 
   selectProject(project: Project) {
