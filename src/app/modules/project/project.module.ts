@@ -8,6 +8,7 @@ import { ProjectDashboardComponent } from "./pages/project-dashboard/project-das
 import { ProjectDetailComponent } from "./pages/project-detail/project-detail.component";
 import { ProjectRoutingModule } from "./project-routing.module";
 import { ProjectComponent } from './pages/project.component';
+import { ProjectFormRfComponent } from './components/project-form-rf/project-form-rf.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ProjectComponent } from './pages/project.component';
     ProjectListComponent,
     ProjectFormComponent,
     ProjectComponent,
+    ProjectFormRfComponent,
   ],
   imports: [
     CommonModule,
